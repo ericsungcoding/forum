@@ -1,0 +1,57 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    margin: 10% auto 0px;
+    background-color: aliceblue;
+    width: 50%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    border-radius: 40px;
+    color: lightblue;
+}
+
+.container h1 {
+    margin-bottom: 25px;
+}
+
+.form-box {
+    width: 40%;
+    text-align: center;
+    padding: 20px;
+    margin: auto;
+}
+
+.form-box input {
+    margin-bottom: 20px;
+    height: 30px;
+}
+
+.form-box button {
+    width: 140px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+.post {
+    width: 400px;
+    padding: 20px;
+    margin: 20px;
+    border: 1px black solid;
+}
+
+div.post p {
+    margin-bottom: 10px;
+}
+
+div.post p.post-content {
+    font-size: 18px;
+}
+
+.comment {
+    padding: 20px 20px 0px 20px;
+    border-bottom: 1px black solid;
+}

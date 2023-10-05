@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Forum</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <h1>The Forum</h1>
+    <p>Welcome {{user.username}}! <a href="/logout">Log Out</a></p>
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{message}}</p>
+        {% endfor %}
+    {% endif %}
+    <form action="/post" method="POST">
+        {% csrf_token %}
+        <textarea name="content" placeholder="Write something" rows="4" cols="60"></textarea><br>
+        <input type="submit" value="Post">
+    </form>
+    {% for post in all_posts reversed %}
+        <div class="post">
+            <p class="post-content">{{post.content}}</p>
+            <p><em>posted by {{post.user.username}} on {{post.created_at}}</em></p>
+            <p><em>Liked by {{post.users_who_liked.count}}.</em></p>
+                {% if user not in post.users_who_liked.all %}
+                    <p><a href="/{{post.id}}/like">Like</a></p>
+                {% else %}
+                    <p><a href="/{{post.id}}/unlike">Unlike</a></p>
+                {% endif %}
+                {% if post.user.id == request.session.user_id %}
+                    <p><a href="/{{post.id}}/delete">Delete</a></p>
+                {% endif %}
+            <form action="/{{post.id}}/comment" method="POST">
+                {% csrf_token %}
+                <input type="text" name="content" placeholder="Comment something" size="40"><br>
+                <input type="submit" value="Comment">
+            </form>
+            {% for comment in post.comments.all %}
+                <div class="comment">
+                    <p>{{comment.content}}</p>
+                    <p><em>posted by {{comment.user.username}} on {{comment.created_at}}</em></p>
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</body>
+</html>
