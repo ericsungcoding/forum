@@ -1,6 +1,7 @@
 * {
     padding: 0;
     margin: 0;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .container {
@@ -14,9 +15,9 @@
     color: lightblue;
 }
 
-.container h1 {
-    margin-bottom: 25px;
-}
+    .container h1 {
+        margin-bottom: 25px;
+    }
 
 .form-box {
     width: 40%;
@@ -25,16 +26,16 @@
     margin: auto;
 }
 
-.form-box input {
-    margin-bottom: 20px;
-    height: 30px;
-}
+    .form-box input {
+        margin-bottom: 20px;
+        height: 30px;
+    }
 
-.form-box button {
-    width: 140px;
-    height: 40px;
-    border-radius: 10px;
-}
+    .form-box button {
+        width: 140px;
+        height: 40px;
+        border-radius: 10px;
+    }
 
 .post {
     width: 400px;
@@ -43,13 +44,13 @@
     border: 1px black solid;
 }
 
-div.post p {
-    margin-bottom: 10px;
-}
+    div.post p {
+        margin-bottom: 10px;
+    }
 
-div.post p.post-content {
-    font-size: 18px;
-}
+    div.post p.post-content {
+        font-size: 18px;
+    }
 
 .comment {
     padding: 20px 20px 0px 20px;
